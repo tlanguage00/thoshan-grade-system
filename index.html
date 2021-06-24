@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+<body>
+  <h1 class="animate__animated animate__heartBeat">Grade System</h1>
+  <div class="container">
+    <div class="field">
+      <div class="row">
+        <label for="">English</label>
+        <input type="text" name="" id="english" autocomplete="off">
+      </div>
+      <span id="emessage"></span>
+    </div>
+    <div class="field">
+      <div class="row">
+        <label for="">Maths</label>
+        <input type="text" name="" id="maths">
+      </div>
+      <span id="mmessage"></span>
+    </div>
+    <div class="field">
+      <div class="row">
+        <label for="">Science</label>
+        <input type="text" name="" id="science">
+      </div>
+      <span id="smessage"></span>
+    </div>
+    <button onclick="cal()">Calculate</button>
+    <p id="showData"></p>
+  </div>
+
+  <script>
+    const cal = () => {
+    let english = Number(document.getElementById('english').value);
+    let maths = Number(document.getElementById('maths').value);
+    let science = Number(document.getElementById('science').value);
+    let total;
+
+  
+
+    if(english == " "){
+
+      document.getElementById('emessage').innerHTML = " *Values can't be empty ";
+      return false;
+    } 
+
+    if((english < 0) || (english > 100)){
+      document.getElementById('emessage').innerHTML = "*Please enter correct details."
+      return false;
+    }
+
+
+    if(maths == " "){
+      document.getElementById('mmessage').innerHTML = " *Values can't be empty ";
+      return false;
+    } 
+
+      
+    if(maths < 0 || maths > 100){
+      document.getElementById('mmessage').innerHTML = "*Please enter correct details."
+      return false;
+    }
+
+    
+    if(science == " "){
+      document.getElementById('smessage').innerHTML = " *Values can't be empty " ;
+      return false;
+    }
+
+    if(science < 0 || science > 100){
+      document.getElementById('smessage').innerHTML = "*Please enter correct details."
+      return false;
+    }
+
+
+    total = english + maths + science;
+    
+    document.getElementById('showData').innerHTML = `Out of 300, you scored ${total}.`
+  }
+
+  </script>
+</body>
+</html>
